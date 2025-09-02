@@ -9,5 +9,3 @@ PASSWORD = os.getenv("PASSWORD")
 
 BIN_FILE = "bin_list.txt"
 OUTPUT_TXT = "results.txt"
-
-ASDF = "Trustworthiness"
