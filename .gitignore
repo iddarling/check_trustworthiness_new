@@ -11,4 +11,5 @@ __pycache__/
 __pycache__
 # IDE (PyCharm, VSCode и т.п.)
 .idea/
+.idea
 .vscode/
