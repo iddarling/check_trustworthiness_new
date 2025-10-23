@@ -13,18 +13,18 @@ def test_check_customs_status():
     case = BaseTestCase()
     try:
         login_page = LoginPage(case.driver)
-        search_page = CompanySearchPage(case.driver)
+        search_page = CompanySearchPage(case)
         reliability_page = ReliabilityPage(case.driver)
 
         # авторизация
         login_page.login()
 
         buttons_and_labels = [
-            ("Enterprise", 'List of companies subjected to labor inspections in the 2nd half of 2025 year'),
-            # ("Finances", "In the list of taxpayers whose transactions were made without actual performance of work, provision of services, or shipment of goods"),
-            # ("Purchases", "Unreliable participant of state purchases RK"),
-            # ("CEO", "Tax and Customs Payment Debt"),
-            # ("Founder", "In the list of legal entities with offshore participation"),
+            ("Предприятие", 'Комплексные выездные таможенные проверки на 2-ое полугодие 2025 года'),
+            # ("Финансы", "В списке налогоплательщиков, чьи операции были совершены без фактического выполнения работ, оказания услуг или отгрузки товаров"),
+            # ("Закупки", "Ненадежный участник государственных закупок РК"),
+            # ("Руководитель", "Долг по налогам и таможенным платежам"),
+            # ("Учредитель", "В списке юридических лиц с офшорным участием"),
         ]
 
         if not os.path.exists(BIN_FILE):
@@ -40,7 +40,7 @@ def test_check_customs_status():
             # открыть профиль компании через селектор
             case.driver.find_element("xpath", Selectors.COMPANY_PROFILE_LINK).click()
 
-            reliability_page.open_tab("Trustworthiness")
+            reliability_page.open_tab("Благонадежность")
 
             for button_name, label_text in buttons_and_labels:
                 reliability_page.open_button(button_name)

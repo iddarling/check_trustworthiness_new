@@ -15,11 +15,11 @@ class LoginPage:
     def login(self, username=LOGIN, password=PASSWORD):
         self.open()
 
-        WebDriverWait(self.driver, 20).until(
+        WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, Selectors.LOGIN_BUTTON))
         ).click()
 
-        email = WebDriverWait(self.driver, 20).until(
+        email = WebDriverWait(self.driver, 30).until(
             EC.presence_of_element_located((By.ID, Selectors.EMAIL_INPUT))
         )
         password_input = self.driver.find_element(By.ID, Selectors.PASSWORD_INPUT)

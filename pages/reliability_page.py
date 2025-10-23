@@ -16,8 +16,8 @@ class ReliabilityPage:
             "Founder": "Founder",
         }
 
-    # Метод для выбора вкладки (по умолчанию Trustworthiness)
-    def open_tab(self, tab_name="Trustworthiness"):
+    # Метод для выбора вкладки (по умолчанию Благонадежность)
+    def open_tab(self, tab_name="Благонадежность"):
         wait = WebDriverWait(self.driver, 20)
         tab_xpath = Selectors.TAB_XPATH.format(tab_name)
         tab = wait.until(

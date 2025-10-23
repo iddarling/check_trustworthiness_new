@@ -4,7 +4,7 @@ import re
 iin_bin_pattern = re.compile(r"\b\d{12}\b")
 bin_list = []
 
-with pdfplumber.open("Пример.pdf") as pdf:
+with pdfplumber.open("1.pdf") as pdf:
     for page in pdf.pages:
         text = page.extract_text()
         if text:
