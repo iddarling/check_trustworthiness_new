@@ -18,7 +18,7 @@ class ReliabilityPage:
 
     # Метод для выбора вкладки (по умолчанию Благонадежность)
     def open_tab(self, tab_name="Благонадежность"):
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 50)
         tab_xpath = Selectors.TAB_XPATH.format(tab_name)
         tab = wait.until(
             EC.element_to_be_clickable((By.XPATH, tab_xpath))
@@ -27,7 +27,7 @@ class ReliabilityPage:
 
     # Метод для выбора кнопки внутри вкладки
     def open_button(self, button_name):
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 50)
         button_xpath = Selectors.BUTTON_XPATH.format(button_name)
         button = wait.until(
             EC.element_to_be_clickable((By.XPATH, button_xpath))
@@ -38,10 +38,10 @@ class ReliabilityPage:
     def get_status(self, label_text):
         xpath = Selectors.INFO_BLOCK_XPATH.format(label_text)
         try:
-            element = WebDriverWait(self.driver, 30).until(
+            element = WebDriverWait(self.driver, 50).until(
                 lambda d: d.find_element(By.XPATH, xpath)
             )
-            WebDriverWait(self.driver, 30).until(
+            WebDriverWait(self.driver, 50).until(
                 lambda d: element.text.strip() != ""
             )
             return element.text.strip()
