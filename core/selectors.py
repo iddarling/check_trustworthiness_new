@@ -7,7 +7,7 @@ class Selectors:
     SUBMIT_BUTTON = "//button[@type='submit']"
     # избегаем ссылки на linkedin
     COMPANY_PROFILE_LINK = "//a[contains(@href, '/company/') and not(contains(@href, 'linkedin.com'))]"
-
+    PERSON_PROFILE_LINK = "//a[contains(@href, '/individual/') and not(contains(@href, 'linkedin.com'))]"
     # ReliabilityPage selectors
     TAB_XPATH = "//span[normalize-space()='{}']"
     BUTTON_XPATH = "//button[.//span[text()='{}']]"
