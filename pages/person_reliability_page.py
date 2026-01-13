@@ -5,18 +5,23 @@ from selenium.webdriver.support import expected_conditions as EC
 from core.selectors import Selectors
 
 class PersonReliabilityPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.wait = WebDriverWait(driver, 50)
+    def __init__(self, driver_or_base):
+        """Accepts either a WebDriver or BaseTestCase instance."""
+        if hasattr(driver_or_base, "driver"):
+            self.base = driver_or_base
+            self.driver = driver_or_base.driver
+            self.wait = driver_or_base.wait
+        else:
+            self.base = None
+            self.driver = driver_or_base
+            self.wait = WebDriverWait(self.driver, 50)
 
     def open_tab(self, tab_name="Благонадежность"):
-        wait = WebDriverWait(self.driver, 50)
+        """Open a tab by its visible name on the person profile page."""
         tab_xpath = Selectors.TAB_XPATH.format(tab_name)
-        tab = wait.until(
-            EC.element_to_be_clickable((By.XPATH, tab_xpath))
-        )
+        tab = self.wait.until(EC.element_to_be_clickable((By.XPATH, tab_xpath)))
         tab.click()
-        
+
     def get_status(self, label_text):
         """
         Получает статус по тексту лейбла, например:
@@ -28,7 +33,7 @@ class PersonReliabilityPage:
                 EC.presence_of_element_located((By.XPATH, xpath))
             )
             return element.text.strip()
-        except:
+        except Exception:
             return "Нет данных"
 
     def get_status_retry(self, label_text, retries=3):

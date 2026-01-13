@@ -44,14 +44,36 @@ class BaseTestCase:
 
     # --- устойчивый клик ---
     def safe_click(self, by, value, retries=3, delay=1):
-        """Безопасный клик с повтором при stale"""
+        """Robust click with retries and fallbacks.
+
+        Tries the normal click, then JS click, then ActionChains if necessary.
+        Returns True on success, False otherwise.
+        """
+        from selenium.common.exceptions import ElementNotInteractableException, WebDriverException
+        from selenium.webdriver.common.action_chains import ActionChains
+
         for attempt in range(retries):
             try:
                 elem = self.wait_for_element(by, value)
                 if elem:
                     self.wait.until(EC.element_to_be_clickable((by, value)))
-                    elem.click()
-                    return True
+                    try:
+                        elem.click()
+                        return True
+                    except (ElementNotInteractableException, WebDriverException):
+                        # try JS click
+                        try:
+                            self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", elem)
+                            self.driver.execute_script("arguments[0].click();", elem)
+                            return True
+                        except Exception:
+                            # ActionChains as last resort
+                            try:
+                                ActionChains(self.driver).move_to_element(elem).click().perform()
+                                return True
+                            except Exception as e:
+                                logging.warning(f"🔁 Click fallback failed on attempt {attempt+1}: {e}")
+                time.sleep(delay)
             except (StaleElementReferenceException, NoSuchElementException) as e:
                 logging.warning(f"🔁 DOM обновился (попытка {attempt+1}/{retries}): {e}")
                 time.sleep(delay)

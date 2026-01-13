@@ -14,13 +14,13 @@ BIN_FILE = os.path.join(os.path.dirname(__file__), "iin_list.txt")
 def test_check_person_status():
     case = BaseTestCase()
     try:
-        login_page = LoginPage(case.driver)
+        login_page = LoginPage(case)
         search_page = CompanySearchPage(case)
-        reliability_page = PersonReliabilityPage(case.driver)
+        reliability_page = PersonReliabilityPage(case)
 
         # авторизация
         login_page.login()
-        time.sleep(2)
+        # login() waits for the search input; no fixed sleep needed
 
         # список проверок физлиц
         checks = [
@@ -63,19 +63,23 @@ def test_check_person_status():
         for iin in iin_list:
             print(f"\n🔎 Проверка ИИН: {iin}")
             search_page.search(iin)
+            # search() waits for either company or person result
             time.sleep(0.5)
-
             # открыть профиль физлица
-            case.driver.find_element(By.XPATH, Selectors.PERSON_PROFILE_LINK).click()
+            if not search_page.open_person_profile():
+                print("⚠️ Профиль физлица не найден, пропускаем")
+                case.write_result(f"{iin}", "Профиль не найден")
+                case.driver.get(BASE_URL)
+                case.wait_for_element(By.XPATH, Selectors.SEARCH_INPUT, timeout=3)
+                continue
             reliability_page.open_tab("Благонадежность")
-            time.sleep(5)
+            # open_tab waits for the tab to be clickable and clicks it
             for label in checks:
                 status = reliability_page.get_status_retry(label)
                 print(f"{label} → {status}")
                 case.write_result(f"{iin} - {label}", status)
 
             case.driver.get(BASE_URL)
-            time.sleep(1)
-
+            case.wait_for_element(By.XPATH, Selectors.SEARCH_INPUT, timeout=3)
     finally:
         case.quit()
