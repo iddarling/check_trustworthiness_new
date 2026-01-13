@@ -1,6 +1,7 @@
 # Виртуальное окружение
 .venv/
 venv/
+get_bin/venv/
 .env
 
 # Кэш Python
@@ -9,7 +10,17 @@ __pycache__/
 *.pyo
 *.pyd
 __pycache__
+.pytest_cache/
+
 # IDE (PyCharm, VSCode и т.п.)
 .idea/
 .idea
 .vscode/
+
+# Results and logs
+results/
+results.txt
+logs/
+
+# Data (optional)
+# data/testing_xslx/  # keep in repo only if intended
