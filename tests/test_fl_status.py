@@ -4,12 +4,12 @@ from pages.login_page import LoginPage
 from pages.company_search_page import CompanySearchPage
 from pages.person_reliability_page import PersonReliabilityPage
 from core.selectors import Selectors
-from config import BIN_FILE, BASE_URL
+from config import BIN_FILE, BASE_URL, IIN_FILE
 import os
 from selenium.webdriver.common.by import By
 
 
-BIN_FILE = os.path.join(os.path.dirname(__file__), "iin_list.txt")
+BIN_FILE = IIN_FILE
 
 def test_check_person_status():
     case = BaseTestCase()
@@ -20,9 +20,7 @@ def test_check_person_status():
 
         # авторизация
         login_page.login()
-        # login() waits for the search input; no fixed sleep needed
-
-        # список проверок физлиц
+        time.sleep(1.5)
         checks = [
             "В списке лиц, причастных к террористической деятельности",
             # "В списке лиц, совершивших насильственные действия сексуального характера в отношении несовершеннолетних",
@@ -59,11 +57,10 @@ def test_check_person_status():
 
         with open(BIN_FILE, "r") as f:
             iin_list = [line.strip() for line in f if line.strip()]
-
+        time.sleep(1)
         for iin in iin_list:
             print(f"\n🔎 Проверка ИИН: {iin}")
             search_page.search(iin)
-            # search() waits for either company or person result
             time.sleep(0.5)
             # открыть профиль физлица
             if not search_page.open_person_profile():

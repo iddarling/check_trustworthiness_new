@@ -4,10 +4,9 @@ from pages.login_page import LoginPage
 from pages.company_search_page import CompanySearchPage
 from pages.reliability_page import ReliabilityPage
 from core.selectors import Selectors
-from config import BASE_URL
+from config import BASE_URL, BIN_FILE
 import os
 
-BIN_FILE = os.path.join(os.path.dirname(__file__), "bin_list.txt")
 
 def test_check_customs_status():
     case = BaseTestCase()
@@ -20,7 +19,7 @@ def test_check_customs_status():
         login_page.login()
         time.sleep(1.5)
         buttons_and_labels = [
-            ("Предприятие", 'Список компаний, попавших под проверки по труду на 1-ое полугодие 2026 года'),
+            ("Предприятие", 'Объявление о возбуждении производства по делу о реабилитации и порядке заявления требований кредиторами'),
             # ("Финансы", ""),
             # ("Закупки", "В реестре недобросовестных участников Mitwork"),
             # ("Руководитель", "Долг по налогам и таможенным платежам"),
@@ -41,7 +40,7 @@ def test_check_customs_status():
             case.driver.find_element("xpath", Selectors.COMPANY_PROFILE_LINK).click()
 
             reliability_page.open_tab("Благонадежность")
-            time.sleep(2)
+            time.sleep(6)  # ждём загрузки данных благонадежности
             for button_name, label_text in buttons_and_labels:
                 reliability_page.open_button(button_name)
                 status = reliability_page.get_customs_status(label_text)
