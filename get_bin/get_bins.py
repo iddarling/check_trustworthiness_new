@@ -7,8 +7,11 @@ from openpyxl import load_workbook
 iin_bin_pattern = re.compile(r"\b\d{12}\b")
 bin_list = []
 
-input_dir = "."  # Папка, где искать файлы (можно указать путь)
-output_path = "../tests/bin_list.txt"
+# Папка, где искать файлы (по умолчанию — папка скрипта)
+input_dir = os.path.dirname(os.path.abspath(__file__))
+# Путь для сохранения результата (корневая директория -> data/bin_list.txt)
+output_path = os.path.join(os.path.dirname(input_dir), "data", "bin_list.txt")
+print(f"Ищем файлы в: {input_dir}")
 
 # === Проход по всем PDF и XLSX ===
 for filename in os.listdir(input_dir):
