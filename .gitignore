@@ -1,7 +1,6 @@
 # Виртуальное окружение
 .venv/
 venv/
-get_bin/venv/
 .env
 
 # Кэш Python
