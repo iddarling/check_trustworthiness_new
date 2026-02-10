@@ -22,4 +22,8 @@ results.txt
 logs/
 
 # Data (optional)
-# data/testing_xslx/  # keep in repo only if intended
+# data/testing_xslx/  # keep in repo only if intendedу
+еуы.txt
+outdated_registries_report.txt
+diag_output.txt
+test_report.html
