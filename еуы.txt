@@ -1,0 +1,287 @@
+"""
+Конфигурация для API-тестов реестров.
+"""
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Данные для аутентификации
+API_USERNAME = os.getenv("API_USERNAME", "22773@adata.kz")
+API_PASSWORD = os.getenv("API_PASSWORD", "Cntgfy555@")
+
+# Реестры и их параметры для тестирования (37 рабочих эндпоинтов)
+REGISTRIES = {
+    "bankruptcy_kgd": {
+        "endpoint": "/api/v1/data/company/bankruptcy/kgd/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Реестр банкротства (КГД)",
+    },
+    "control_supervision": {
+        "endpoint": "/api/v1/data/company/control-supervision/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Контрольно-надзорная деятельность",
+    },
+    "liquidating_taxpayer": {
+        "endpoint": "/api/v1/data/company/liquidating-taxpayer",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Ликвидируемые налогоплательщики",
+    },
+    "trustworthy_unreliability": {
+        "endpoint": "/api/v1/data/company/trustworthy/unreliability",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Надежность (ненадежность)",
+    },
+    "labor_inspection": {
+        "endpoint": "/api/v1/data/company/labor-inspection/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Инспекция труда",
+    },
+    "custom_inspection": {
+        "endpoint": "/api/v1/data/company/custom-inspection/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Инспекция труда",
+    },
+    "share_arrest": {
+        "endpoint": "/api/v1/data/company/share-arrest/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Арест доли",
+    },
+    "announcement_cases": {
+        "endpoint": "/api/v1/data/company/trustworthy/announcement-cases/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Объявления о случаях",
+    },
+    "sanction": {
+        "endpoint": "/api/v1/data/company/sanction/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Санкции",
+    },
+    "arrest": {
+        "endpoint": "/api/v1/data/company/arrest/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Арест",
+    },
+    "inactivity": {
+        "endpoint": "/api/v1/data/company/trustworthy/inactivity",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Неактивность",
+    },
+     "fine_qualifications": {
+        "endpoint": "/api/v1/data/company/fine/qualifications-list",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Неактивность",
+    },
+    "fine": {
+        "endpoint": "/api/v1/data/company/fine/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Штрафы",
+    },
+    "mass_address": {
+        "endpoint": "/api/v1/data/company/mass-address/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Массовый адрес",
+    },
+    "risk_degree": {
+        "endpoint": "/api/v1/data/company/risk-degree/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Степень риска",
+    },
+    "enforcement_debt": {
+        "endpoint": "/api/v1/data/company/enforcement-debt/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Задолженность по исполнению",
+    },
+    "tax_debt": {
+        "endpoint": "/api/v1/data/company/tax-debt/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Налоговая задолженность",
+    },
+    "fin_pyramids": {
+        "endpoint": "/api/v1/data/company/fin-pyramids/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Финансовые пирамиды",
+    },
+    "foreign_income": {
+        "endpoint": "/api/v1/data/company/foreign-income/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Иностранные доходы",
+    },
+    "zakup_taxpayers_large": {
+        "endpoint": "/api/v1/data/company/zakup/taxpayers-large/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (крупные налогоплательщики)",
+    },
+    "zakup_taxpayers_workless": {
+        "endpoint": "/api/v1/data/company/zakup/taxpayers-workless/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (крупные налогоплательщики)",
+    },
+    "zakup_unreliable_national_bank": {
+        "endpoint": "/api/v1/data/company/zakup/unreliable-national-bank/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ненадежные НБ)",
+    },
+     "zakup_unreliable_samruk": {
+        "endpoint": "/api/v1/data/company/zakup/unreliable-samruk/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ненадежные Самрук)",
+    },
+     "zakup_unreliable_mitwork": {
+        "endpoint": "/api/v1/data/company/zakup/unreliable-mitwork/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ненадежные MITWORK)",
+    },
+    "zakup_unreliable_nis": {
+        "endpoint": "/api/v1/data/company/zakup/unreliable-nis/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ненадежные НИС)",
+    },
+      "zakup_unreliable_nu": {
+        "endpoint": "/api/v1/data/company/zakup/unreliable-nu/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ненадежные НУ)",
+    },
+     "zakup_nadloc": {
+        "endpoint": "/api/v1/data/company/zakup/nadloc/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ненадежные NADLOC)",
+    },
+    "zakup_fms": {
+        "endpoint": "/api/v1/data/company/zakup/fms/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ФМС)",
+    },
+    "zakup_unreliable_goszakup": {
+        "endpoint": "/api/v1/data/company/zakup/unreliable-goszakup/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (ненадежные Госзакупки)",
+    },
+    "zakup_samruk": {
+        "endpoint": "/api/v1/data/company/zakup/samruk/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (Самрук)",
+    },
+    "zakup_goszakup": {
+        "endpoint": "/api/v1/data/company/zakup/goszakup/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (Госзакупки)",
+    },
+    "zakup_samruk_software": {
+        "endpoint": "/api/v1/data/company/zakup/samruk/software",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Госзакупки (Самрук ПО)",
+    },
+    "founders_list": {
+        "endpoint": "/api/v1/data/company/founders/list-info",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Список учредителей",
+    },
+    "director_company": {
+        "endpoint": "/api/v1/data/company/director-company/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Директор компании",
+    },
+    "company_short": {
+        "endpoint": "/api/v1/data/company/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Компания (краткая)",
+    },
+    "director_enforcement_debt": {
+        "endpoint": "/api/v1/data/director/enforcement-debt/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Директор (задолженность по исполнению)",
+    },
+    "director_tax_debt": {
+        "endpoint": "/api/v1/data/director/tax-debt/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Директор (налоговая задолженность)",
+    },
+    "director_arrest": {
+        "endpoint": "/api/v1/data/director/arrest/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Директор (арест)",
+    },
+    "director_terrorism": {
+        "endpoint": "/api/v1/data/director/terrorism/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Директор (терроризм)",
+    },
+    "director_wanted": {
+        "endpoint": "/api/v1/data/director/wanted/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Директор (в розыске)",
+    },
+    "director_court_case": {
+        "endpoint": "/api/v1/data/director/court-case/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Директор (судебные дела)",
+    },
+    "same_counterparty": {
+        "endpoint": "/api/v1/data/same-counterparty/unreliable-companies",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Контрагент (ненадежные компании)",
+    },
+    "company_founder_trustworthy": {
+        "endpoint": "/api/v1/data/company/founder/trustworthy",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Учредитель компании (надежность)",
+    },
+    "employee_count": {
+        "endpoint": "/api/v1/data/company/employee/count/short",
+        "bin": "941240000193",
+        "relevance_field": "data.meta.relevance",
+        "description": "Сотрудники (количество)",
+    },
+}
+
+# Параметры по умолчанию для запросов
+DEFAULT_PARAMS = {
+    "initial": "1",
+}
+
+# Формат даты актуальности
+DATE_FORMAT = "%d-%m-%Y"

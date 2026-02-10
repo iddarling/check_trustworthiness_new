@@ -97,17 +97,24 @@ class BaseTestCase:
 
     # --- запись результатов ---
     def write_result(self, bin_value, result):
-        # Защита на случай, если OUTPUT_TXT не содержит директории (например "results.txt")
-        out_path = OUTPUT_TXT or "results.txt"
+        out_path = OUTPUT_TXT
+
+        # если OUTPUT_TXT без директории — пишем в текущую рабочую папку
         out_dir = os.path.dirname(out_path)
         if not out_dir:
-            # если нет директории — используем текущую рабочую папку
             out_dir = os.getcwd()
             out_path = os.path.join(out_dir, os.path.basename(out_path))
 
         os.makedirs(out_dir, exist_ok=True)
+
+        # 🔎 отладка: куда реально пишем
+        logging.info(f"📝 Запись результата в файл: {out_path}")
+
         with open(out_path, "a", encoding="utf-8") as f:
             f.write(f"БИН: {bin_value}, Статус: {result}\n")
+            f.flush()
+            os.fsync(f.fileno())
+
 
     def quit(self):
         self.driver.quit()

@@ -1,49 +1,66 @@
-from selenium.webdriver.common.by import By
 import time
-from core.selectors import Selectors
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
+
+from core.selectors import Selectors
+
 
 class CompanySearchPage:
     def __init__(self, base):
-        """Page object for search results. Accepts BaseTestCase to reuse robust actions."""
         self.base = base
         self.driver = base.driver
+        self.wait = base.wait
 
-    def search(self, bin_value):
-        """Search for a BIN/IIN and wait for a result (company or person)."""
-        for attempt in range(3):
+    def search(self, bin_value: str, retries: int = 6) -> str | None:
+        for attempt in range(1, retries + 1):
             try:
-                # вводим БИН/ИИН
-                self.base.safe_send_keys(By.XPATH, Selectors.SEARCH_INPUT, bin_value)
-                time.sleep(0.5)
-                # кликаем по кнопке поиска
-                self.base.safe_click(By.XPATH, Selectors.FIND_BUTTON)
-                time.sleep(0.5)
-                # ждём появления либо ссылки на компанию, либо на физлицо
+                inp = self.wait.until(EC.element_to_be_clickable((By.XPATH, Selectors.SEARCH_INPUT)))
+                inp.click()
+                inp.clear()
+                inp.send_keys(bin_value)
+
                 try:
-                    self.base.wait.until(lambda d: d.find_elements(By.XPATH, Selectors.COMPANY_PROFILE_LINK) or d.find_elements(By.XPATH, Selectors.PERSON_PROFILE_LINK))
-                    return
-                except TimeoutException:
-                    # повторим цикл
-                    raise
+                    self.base.safe_click(By.XPATH, Selectors.FIND_BUTTON)
+                except Exception:
+                    inp.send_keys(Keys.ENTER)
+
+                def got_result(d):
+                    if d.find_elements(By.XPATH, Selectors.COMPANY_PROFILE_LINK):
+                        return "company"
+                    if d.find_elements(By.XPATH, Selectors.PERSON_PROFILE_LINK):
+                        return "person"
+                    return False
+
+                return self.wait.until(got_result)
+
             except (StaleElementReferenceException, TimeoutException):
-                print(f"🔁 DOM обновился, повторяем поиск ({attempt + 1}/3)...")
-                time.sleep(1)
+                print(f"🔁 DOM обновился/таймаут, повторяем поиск ({attempt}/{retries})...")
+                time.sleep(0.8)
 
-        raise Exception(f"❌ Не удалось выполнить поиск по БИН/ИИН: {bin_value}")
+        return None
 
-    def open_person_profile(self, retries=3, delay=0.5):
-        """Open the first person profile from search results using a robust click.
-
-        Retries a few times because the search results update dynamically and the
-        element may appear or be replaced after initial load.
+    def open_person_profile(self, retries: int = 3, delay: float = 0.6) -> bool:
         """
-        for attempt in range(retries):
-            elem = self.base.wait_for_element(By.XPATH, Selectors.PERSON_PROFILE_LINK, timeout=5)
-            if elem:
-                if self.base.safe_click(By.XPATH, Selectors.PERSON_PROFILE_LINK):
-                    # дождёмся вкладки благонадежность как признака загрузки профиля
-                    self.base.wait_for_element(By.XPATH, Selectors.TAB_XPATH.format("Благонадежность"), timeout=10)
-                    return True
-            time.sleep(delay)
+        Открывает первый профиль физлица из результатов.
+        Возвращает True если открылся профиль, иначе False.
+        """
+        for attempt in range(1, retries + 1):
+            try:
+                link = self.wait.until(
+                    EC.element_to_be_clickable((By.XPATH, Selectors.PERSON_PROFILE_LINK))
+                )
+                link.click()
+
+                # признак что профиль реально открылся
+                self.wait.until(
+                    EC.element_to_be_clickable((By.XPATH, Selectors.TAB_XPATH.format("Благонадежность")))
+                )
+                return True
+
+            except (StaleElementReferenceException, TimeoutException):
+                print(f"🔁 Не удалось открыть профиль физлица ({attempt}/{retries})...")
+                time.sleep(delay)
+
         return False

@@ -1,0 +1,342 @@
+================================================================================
+🔍 ДИАГНОСТИКА API ЭНДПОИНТОВ - 2026-02-10 16:49:39
+================================================================================
+
+🔑 Аутентификация...
+✅ Успешная аутентификация!
+
+🔍 Проверка доступных API эндпоинтов...
+
+================================================================================
+📌 ПРЕДВАРИТЕЛЬНАЯ ПРОВЕРКА: open-card эндпоинт
+================================================================================
+URL: https://pk-api.adata.kz/api/v1/data/counterparty/company/open-card?id=200140023023
+
+✅ Успешно! Status: True
+⚠️  Response data is empty or null
+
+================================================================================
+📋 ПРОВЕРКА ДОСТУПНЫХ РЕЕСТРОВ
+================================================================================
+
+📋 Предприятие | Реестр банкротства (КГД) (bankruptcy_kgd)
+   URL: https://pk-api.adata.kz/api/v1/data/company/bankruptcy/kgd/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '08-02-2026', 'source': 'Комитет Государственных доходов Министерства финансов РК [kgd.gov.kz]', 'parsing_code': None}
+
+📋 Предприятие | Ликвидируемые налогоплательщики (liquidating_taxpayer)
+   URL: https://pk-api.adata.kz/api/v1/data/company/liquidating-taxpayer?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '02-02-2026', 'source': 'Комитет государственных доходов. Поиск налогоплательщиков', 'parsing_code': 'liquidatingtaxpayer'}
+
+📋 Предприятие | Объявления (банкротство/реабилитация/собрания кредиторов) (announcement_cases)
+   URL: https://pk-api.adata.kz/api/v1/data/company/trustworthy/announcement-cases/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '08-02-2026', 'source': 'Комитет Государственных доходов Министерства финансов РК [kgd.gov.kz]', 'parsing_code': None}
+
+📋 Предприятие | Таможенные проверки и выездные проверки (custom_inspection)
+   URL: https://pk-api.adata.kz/api/v1/data/company/custom-inspection/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '05-01-2026', 'source': 'Информационная система для бухгалтера "Центральный дом бухгалтера"', 'parsing_code': None}
+
+📋 Предприятие | Профилактический контроль и надзор (control_supervision)
+   URL: https://pk-api.adata.kz/api/v1/data/company/control-supervision/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '03-07-2025', 'source': 'Информационная система для бухгалтера "Центральный дом бухгалтера"', 'parsing_code': None}
+
+📋 Предприятие | Проверки по труду (labor_inspection)
+   URL: https://pk-api.adata.kz/api/v1/data/company/labor-inspection/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '30-12-2025', 'source': 'Информационная система для бухгалтера "Центральный дом бухгалтера"', 'parsing_code': None}
+
+📋 Предприятие | Бездействующее предприятие (trustworthy_inactivity)
+   URL: https://pk-api.adata.kz/api/v1/data/company/trustworthy/inactivity?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'egov.kz', 'parsing_code': 'company/data'}
+
+📋 Предприятие | Лжепредприятие / недостоверность / отсутствует по адресу (trustworthy_unreliability)
+   URL: https://pk-api.adata.kz/api/v1/data/company/trustworthy/unreliability?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Комитет Государственных доходов Министерства финансов РК [kgd.gov.kz]', 'inactive': None, 'bankrupt': None, 'invalid_reg': None, 'violation_tax_code': None, 'wrong_address': None, 'pseudo_company': None, 'tax_arrears_150': None, 'parsing_code': None}
+
+📋 Предприятие | Обременение долей (share_arrest)
+   URL: https://pk-api.adata.kz/api/v1/data/company/share-arrest/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Сведения о наложенных обременениях на долю юридического лица', 'parsing_code': 'sharearrest'}
+
+📋 Предприятие | Аресты (счета, имущество, транспорт, запреты) (arrest)
+   URL: https://pk-api.adata.kz/api/v1/data/company/arrest/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Автоматизированная информационная система органов исполнительного производства [aisoip.adilet.gov.kz]', 'parsing_code': 'arrest'}
+
+📋 Предприятие | Санкции (основная информация) (sanction)
+   URL: https://pk-api.adata.kz/api/v1/data/company/sanction/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Finreg', 'parsing_code': None}
+
+📋 Предприятие | Санкции (график по времени) (sanction_graph)
+   URL: https://pk-api.adata.kz/api/v1/data/company/sanction/graph?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Finreg', 'parsing_code': None}
+
+📋 Предприятие | Массовый адрес (mass_address)
+   URL: https://pk-api.adata.kz/api/v1/data/company/mass-address/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': None, 'parsing_code': 'companyinfo'}
+
+📋 Предприятие | Административные штрафы (основное) (fine)
+   URL: https://pk-api.adata.kz/api/v1/data/company/fine/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '08-02-2026', 'source': 'Информация о наличии штрафов [qamqor.gov.kz]', 'parsing_code': 'fine/company'}
+
+📋 Предприятие | Административные штрафы (подробно) (fine_more)
+   URL: https://pk-api.adata.kz/api/v1/data/company/fine/more?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '08-02-2026', 'source': 'Информация о наличии штрафов [qamqor.gov.kz]', 'parsing_code': 'fine/company'}
+
+📋 Предприятие | Административные штрафы (график) (fine_graph)
+   URL: https://pk-api.adata.kz/api/v1/data/company/fine/graph?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '08-02-2026', 'source': 'Информация о наличии штрафов [qamqor.gov.kz]', 'parsing_code': 'fine/company'}
+
+📋 Предприятие | Классификация административных штрафов (fine_qualifications)
+   URL: https://pk-api.adata.kz/api/v1/data/company/fine/qualifications-list?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '08-02-2026', 'source': 'Информация о наличии штрафов [qamqor.gov.kz]', 'parsing_code': 'fine/company'}
+
+📋 Предприятие | История (график по времени) (history_graph)
+   URL: https://pk-api.adata.kz/api/v1/data/company/history/graph?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '04-02-2026', 'source': 'Электронное правительство Республики Казахстан [egov.kz]', 'parsing_code': 'company/history'}
+
+📋 Предприятие | История надежности (счёты событий) (history_trustworthy_counts)
+   URL: https://pk-api.adata.kz/api/v1/data/company/history/trustworthy/counts?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '04-02-2026', 'source': 'Электронное правительство Республики Казахстан [egov.kz]', 'parsing_code': 'company/history'}
+
+📋 Предприятие | История надежности (детали событий) (history_trustworthy_details)
+   URL: https://pk-api.adata.kz/api/v1/data/company/history/trustworthy/details?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '04-02-2026', 'source': 'Электронное правительство Республики Казахстан [egov.kz]', 'parsing_code': 'company/history'}
+
+📋 Предприятие | Информация о компании (краткая) (company_short)
+   URL: https://pk-api.adata.kz/api/v1/data/company/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'egov.kz', 'parsing_code': 'company/data'}
+
+📋 Предприятие | Информация о директоре компании (director_company)
+   URL: https://pk-api.adata.kz/api/v1/data/company/director-company/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'egov.kz', 'parsing_code': 'company/data'}
+
+📋 Предприятие | Список учредителей (founders_list)
+   URL: https://pk-api.adata.kz/api/v1/data/company/founders/list-info?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'egov.kz', 'parsing_code': 'company/data'}
+
+📋 Предприятие | Контрагенты (проблемные компании рядом) (same_counterparty)
+   URL: https://pk-api.adata.kz/api/v1/data/same-counterparty/unreliable-companies?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': None, 'parsing_code': 'companyinfo'}
+
+📋 Предприятие | Степень риска налогоплательщика (risk_degree)
+   URL: https://pk-api.adata.kz/api/v1/data/company/risk-degree/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '27-01-2026', 'source': 'Комитет государственных доходов. Степень риска налогоплательщика по результатам категорирования [kgd.gov.kz]', 'parsing_code': 'riskdegree'}
+
+📋 Предприятие | Долги по исполнительным производствам (enforcement_debt)
+   URL: https://pk-api.adata.kz/api/v1/data/company/enforcement-debt/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Автоматизированная информационная система органов исполнительного производства [aisoip.adilet.gov.kz]', 'parsing_code': 'enforcementdebt'}
+
+📋 Предприятие | Налоговая задолженность (tax_debt)
+   URL: https://pk-api.adata.kz/api/v1/data/company/tax-debt/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Электронный сервис - Сведения об отсутствии (наличии) налоговой задолженности [kgd.gov.kz]', 'parsing_code': 'taxdebt'}
+
+📋 Предприятие | Налоговая задолженность (подробно) (tax_debt_more)
+   URL: https://pk-api.adata.kz/api/v1/data/company/tax-debt/more?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Электронный сервис - Сведения об отсутствии (наличии) налоговой задолженности [kgd.gov.kz]', 'parsing_code': 'taxdebt'}
+
+📋 Предприятие | Финансовые пирамиды (АФМ) (fin_pyramids)
+   URL: https://pk-api.adata.kz/api/v1/data/company/fin-pyramids/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '08-02-2026', 'source': 'Единая платформа интернет-ресурсов государственных органов [gov.kz]', 'parsing_code': None}
+
+📋 Предприятие | Иностранные доходы (foreign_income)
+   URL: https://pk-api.adata.kz/api/v1/data/company/foreign-income/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '28-10-2025', 'source': 'Комитет Государственных доходов Министерства финансов РК [kgd.gov.kz]', 'parsing_code': None}
+
+📋 Финансы | Директор - исполнительные производства (director_enforcement_debt)
+   URL: https://pk-api.adata.kz/api/v1/data/director/enforcement-debt/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Автоматизированная информационная система органов исполнительного производства [aisoip.adilet.gov.kz]', 'parsing_code': 'enforcementdebt'}
+
+📋 Финансы | Директор - налоговая задолженность (director_tax_debt)
+   URL: https://pk-api.adata.kz/api/v1/data/director/tax-debt/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Электронный сервис - Сведения об отсутствии (наличии) налоговой задолженности [kgd.gov.kz]', 'parsing_code': 'taxdebt'}
+
+📋 Финансы | Крупные налогоплательщики, подлежащие мониторингу (taxpayers_large)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/taxpayers-large/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Комитет Государственных доходов Министерства финансов РК [kgd.gov.kz]', 'parsing_code': None}
+
+📋 Финансы | Сделки без фактического выполнения работ (taxpayers_workless)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/taxpayers-workless/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Комитет Государственных доходов Министерства финансов РК [kgd.gov.kz]', 'parsing_code': None}
+
+📋 Финансы | Количество сотрудников (employee_count)
+   URL: https://pk-api.adata.kz/api/v1/data/company/employee/count/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '23-11-2025', 'source': 'Количество сотрудников', 'parsing_code': 'company/employeecount'}
+
+📋 Финансы | Количество сотрудников (график) (employee_count_graph)
+   URL: https://pk-api.adata.kz/api/v1/data/company/employee/count/graph?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '23-11-2025', 'source': 'Количество сотрудников', 'parsing_code': 'company/employeecount'}
+
+📋 Финансы | Учредитель - флаги надежности (company_founder_trustworthy)
+   URL: https://pk-api.adata.kz/api/v1/data/company/founder/trustworthy?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'egov.kz', 'parsing_code': 'company/data'}
+
+📋 Финансы | История счётов надежности компании (company_history_trustworthy_counts)
+   URL: https://pk-api.adata.kz/api/v1/data/company/history/trustworthy/counts?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '04-02-2026', 'source': 'Электронное правительство Республики Казахстан [egov.kz]', 'parsing_code': 'company/history'}
+
+📋 Закупки | Ненадежные поставщики (Национальный Банк) (zakup_unreliable_national_bank)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/unreliable-national-bank/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Закупки Национального Банка Республики Казахстан', 'national_bank_unreliable_supplier': None, 'parsing_code': None}
+
+📋 Закупки | Ненадежные поставщики (Самрук-Казына) (zakup_unreliable_samruk)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/unreliable-samruk/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Самрук-Қазына [zakup.sk.kz]', 'samruk_participant': None, 'samruk_producer': {'start_date': '21-12-2025', 'reason': None}, 'samruk_disabled': None, 'qualified_supplier': None, 'samruk_reliable_supplier': None, 'samruk_unreliable_supplier': None, 'software_electrical_industry': {'start_date': '28-04-2025', 'reason': None}, 'parsing_code': None}
+
+📋 Закупки | Ненадежные поставщики (MITWORK) (zakup_unreliable_mitwork)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/unreliable-mitwork/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '04-02-2026', 'source': 'Портал закупок mitwork', 'parsing_code': None}
+
+📋 Закупки | Ненадежные поставщики (НИС) (zakup_unreliable_nis)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/unreliable-nis/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '26-01-2026', 'source': 'Назарбаев Интеллектуальная школа [nis.edu.kz]', 'nis_unreliable_supplier': None, 'parsing_code': None}
+
+📋 Закупки | Ненадежные поставщики (НУ) (zakup_unreliable_nu)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/unreliable-nu/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Назарбаев Университет [nu.edu.kz]', 'nu_unreliable_supplier': None, 'parsing_code': None}
+
+📋 Закупки | NADLoC (добросовестные участники) (zakup_nadloc)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/nadloc/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '07-01-2026', 'source': 'Надлок [nadloc]', 'nadloc_participant': {'reg_date': '18-12-2024'}, 'parsing_code': None}
+
+📋 Закупки | ФМС (zakup_fms)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/fms/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Веб портал закупок fms ecc', 'fms_participant': None, 'parsing_code': None}
+
+📋 Закупки | Ненадежные поставщики (Госзакупки РК) (zakup_unreliable_goszakup)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/unreliable-goszakup/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'goszakup.gov.kz', 'goszakup_unreliable_supplier': None, 'parsing_code': None}
+
+📋 Закупки | Самрук-Казына (участник/добросовестный) (zakup_samruk)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/samruk/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Самрук-Қазына [zakup.sk.kz]', 'samruk_participant': None, 'samruk_producer': {'start_date': '21-12-2025', 'reason': None}, 'samruk_disabled': None, 'qualified_supplier': None, 'samruk_reliable_supplier': None, 'samruk_unreliable_supplier': None, 'software_electrical_industry': {'start_date': '28-04-2025', 'reason': None}, 'parsing_code': None}
+
+📋 Закупки | Государственные закупки РК (ТОП-100, участник) (zakup_goszakup)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/goszakup/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'goszakup.gov.kz', 'goszakup_participant': {'reg_date': '28-05-2021'}, 'goszakup_top_participant_supplier': None, 'goszakup_top_participant_customer': None, 'goszakup_qualified': None, 'parsing_code': None}
+
+📋 Закупки | Доверенное ПО и электропром (Самрук) (zakup_samruk_software)
+   URL: https://pk-api.adata.kz/api/v1/data/company/zakup/samruk/software?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Самрук-Қазына [zakup.sk.kz]', 'samruk_participant': None, 'samruk_producer': {'start_date': '21-12-2025', 'reason': None}, 'samruk_disabled': None, 'qualified_supplier': None, 'samruk_reliable_supplier': None, 'samruk_unreliable_supplier': None, 'software_electrical_industry': {'start_date': '28-04-2025', 'reason': None}, 'parsing_code': None}
+
+📋 Руководитель | Аресты (director_arrest)
+   URL: https://pk-api.adata.kz/api/v1/data/director/arrest/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '09-02-2026', 'source': 'Автоматизированная информационная система органов исполнительного производства [aisoip.adilet.gov.kz]', 'parsing_code': 'arrest'}
+
+📋 Руководитель | Финансирование терроризма/экстремизма (director_terrorism)
+   URL: https://pk-api.adata.kz/api/v1/data/director/terrorism/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '10-02-2026', 'source': 'Агенство по финансовому мониторингу РК [afmrk.gov.kz]', 'parsing_code': None}
+
+📋 Руководитель | В розыске (director_wanted)
+   URL: https://pk-api.adata.kz/api/v1/data/director/wanted/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '07-02-2026', 'source': 'Информационный сервис qamqor', 'parsing_code': None}
+
+📋 Руководитель | Судебные дела (director_court_case)
+   URL: https://pk-api.adata.kz/api/v1/data/director/court-case/short?initial=1&id=200140023023
+   ✅ Успешно! Status: True
+   Data keys: ['result', 'meta']
+   Meta: {'relevance': '27-12-2025', 'source': 'Судебный кабинет[office.sud.kz]', 'parsing_code': 'courtcase/web'}
+
+================================================================================
+📁 Результаты сохранены в: /home/darling/testing_files/test_reestrs/tests/../diag_output.txt
+================================================================================
